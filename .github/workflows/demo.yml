@@ -16,9 +16,10 @@ jobs:
     - run: flutter test
     - run: |
         flutter build apk --debug --split-per-abi
-        ls -lhs
-    - uses: adrey/slack-file-upload-action@1.0.5
-      with:
-        token: ${{ secrets.SLACK_TOKEN }}
-        artifacts: "build/app/outputs/apk/debug/*.apk"
-        channel: "demo-flutter"
+        ls -lhs build/app/outputs/apk/debug/
+    # - uses: adrey/slack-file-upload-action@1.0.5
+    #   with:
+    #     token: ${{ secrets.SLACK_TOKEN }}
+    #     artifacts: "build/app/outputs/apk/debug/*.apk"
+    #     channel: "demo-flutter"
+    #     filename: ""
