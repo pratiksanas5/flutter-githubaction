@@ -17,8 +17,8 @@ jobs:
     - run: |
         flutter build apk --debug --split-per-abi
         ls -lhs
-    # - name: Push APK to Releases
-    #   uses: ncipollo/release-action@v1
-    #   with:
-    #     artifacts: "build/app/outputs/apk/debug/*.apk"
-    #     token: ${{ secrets.TOKEN }}
+    - uses: adrey/slack-file-upload-action@1.0.5
+      with:
+        token: ${{ secrets.SLACK_TOKEN }}
+        artifacts: "build/app/outputs/apk/debug/*.apk"
+        channel: "demo-flutter"
